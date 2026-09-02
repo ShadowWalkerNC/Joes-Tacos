@@ -18,6 +18,7 @@ export const MenuView: React.FC<MenuViewProps> = ({ onSelectItem, onQuickAdd }) 
     { id: 'all', label: 'All Items', icon: '🌮' },
     { id: 'tacos', label: 'Street Tacos', icon: '🌮' },
     { id: 'burritos', label: '12" Burritos', icon: '🌯' },
+    { id: 'bowls', label: 'Burrito Bowls', icon: '🥗' },
     { id: 'quesadillas', label: '12" Quesadillas', icon: '🧀' },
     { id: 'sandwiches', label: 'Grill & Wraps', icon: '🍔' },
     { id: 'sides', label: 'Chips & Salsas', icon: '🥑' },

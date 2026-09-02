@@ -31,7 +31,7 @@ export const FindUsView: React.FC<FindUsViewProps> = ({ onOpenDirections }) => {
             Track Us Down
           </h1>
           <p className="font-['Work_Sans'] text-sm sm:text-base text-[#cbd5e1] max-w-md leading-relaxed">
-            Fresh tortillas wait for no one. Find the rig in Rockport, Owls Head, or Rockland before the carnitas sell out.
+            Fresh tortillas wait for no one. Find the rig in Rockport, Owls Head, or Belfast before the carnitas sell out.
           </p>
         </div>
 

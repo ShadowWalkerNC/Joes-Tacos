@@ -1,6 +1,6 @@
 export type PageView = 'home' | 'menu' | 'find-us' | 'events' | 'about';
 
-export type MenuCategory = 'all' | 'tacos' | 'burritos' | 'quesadillas' | 'sandwiches' | 'sides' | 'kids' | 'drinks';
+export type MenuCategory = 'all' | 'tacos' | 'burritos' | 'bowls' | 'quesadillas' | 'sandwiches' | 'sides' | 'kids' | 'drinks';
 
 export interface MenuItemOption {
   id: string;
@@ -11,7 +11,7 @@ export interface MenuItemOption {
 export interface MenuItem {
   id: string;
   name: string;
-  category: 'tacos' | 'burritos' | 'quesadillas' | 'sandwiches' | 'sides' | 'kids' | 'drinks';
+  category: 'tacos' | 'burritos' | 'bowls' | 'quesadillas' | 'sandwiches' | 'sides' | 'kids' | 'drinks';
   price: number;
   description: string;
   image: string;

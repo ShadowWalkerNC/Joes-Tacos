@@ -88,7 +88,17 @@ export const GoogleTruckMap: React.FC<GoogleTruckMapProps> = ({
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
                   </span>
                 )}
-                <span>{stop.isLive ? '🔴 Live: Rockport' : stop.name.split(' ')[0]}</span>
+                <span>
+                  {stop.isLive
+                    ? '🔴 Live: 34 Commercial St'
+                    : stop.id === 'country-inn-rockport'
+                    ? 'The Country Inn'
+                    : stop.id === 'owls-head-museum'
+                    ? 'Owls Head Museum'
+                    : stop.id === 'farmers-market-belfast'
+                    ? 'Belfast Market'
+                    : stop.name}
+                </span>
               </button>
             );
           })}

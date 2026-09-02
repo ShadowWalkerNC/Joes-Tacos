@@ -115,10 +115,10 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigate }) => {
               <Utensils className="w-5 h-5" />
             </div>
             <h4 className="font-['Montserrat'] font-bold text-sm uppercase text-white">
-              Rockland & Rallies
+              Markets & Fairs
             </h4>
             <p className="text-xs text-[#94a3b8] leading-relaxed">
-              Rockland Harbor, Main St & special weekend food truck rallies throughout the Midcoast area.
+              United Farmers Market of Maine (Belfast), Camden Art Walk, and The Union Fairgrounds.
             </p>
           </div>
         </div>

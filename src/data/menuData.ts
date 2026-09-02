@@ -163,6 +163,50 @@ export const MENU_ITEMS: MenuItem[] = [
     }
   },
 
+  // --- BURRITO BOWLS ---
+  {
+    id: 'carnivore-bowl',
+    name: 'Carnivore Burrito Bowl',
+    category: 'bowls',
+    price: 15.00,
+    description: 'Loaded bowl of seasoned cilantro-lime rice, black beans, sweet fire-roasted corn salsa, fresh pico de gallo, mixed cheese, and your choice of grilled protein.',
+    image: 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80',
+    tags: ['Gluten-Free', 'Beef', 'Pork', 'Chicken', 'Best Seller'],
+    isBestSeller: true,
+    spicyLevel: 1,
+    options: {
+      proteinChoices: [
+        { id: 'carne-asada', name: 'Carne Asada Steak', price: 0 },
+        { id: 'seasoned-chicken', name: 'Seasoned Chicken', price: 0 },
+        { id: 'pork-carnitas', name: 'Pork Carnitas', price: 0 },
+        { id: 'pork-chorizo', name: 'Pork Chorizo', price: 0 }
+      ],
+      salsas: ['Avocado Ranch Drizzle', 'Pico de Gallo & Corn Salsa', 'Side Hot Sauce'],
+      addOns: [
+        { id: 'add-guac', name: 'Add Fresh Guacamole (+ $3)', price: 3.00 },
+        { id: 'add-sour', name: 'Add Sour Cream (+ $1)', price: 1.00 },
+        { id: 'extra-cheese', name: 'Extra Melted Cheese (+ $1)', price: 1.00 }
+      ]
+    }
+  },
+  {
+    id: 'veggie-bowl',
+    name: 'Veggie Fiesta Burrito Bowl',
+    category: 'bowls',
+    price: 12.00,
+    description: 'Fresh cilantro-lime rice topped with seasoned black beans, sweet roasted corn salsa, house pico de gallo, shredded crisp lettuce, and fresh lime wedges (Gluten-Free, Vegan).',
+    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',
+    tags: ['Vegan', 'Gluten-Free', 'Vegetarian'],
+    spicyLevel: 0,
+    options: {
+      salsas: ['Sweet Corn Salsa & Pico', 'Extra Pico de Gallo'],
+      addOns: [
+        { id: 'add-guac', name: 'Add Fresh Guacamole (+ $3)', price: 3.00 },
+        { id: 'add-sour', name: 'Add Sour Cream (+ $1)', price: 1.00 }
+      ]
+    }
+  },
+
   // --- 12" QUESADILLAS ---
   {
     id: 'cheese-quesadilla',
