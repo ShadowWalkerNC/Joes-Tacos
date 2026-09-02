@@ -14,6 +14,7 @@ import { FindUsView } from './views/FindUsView';
 import { EventsView } from './views/EventsView';
 import { AboutView } from './views/AboutView';
 import { Flame } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageView>('home');
@@ -241,6 +242,9 @@ export default function App() {
         locationName={directionsModal.locationName}
         address={directionsModal.address}
       />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
