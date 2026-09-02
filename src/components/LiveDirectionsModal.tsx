@@ -26,9 +26,13 @@ export const LiveDirectionsModal: React.FC<LiveDirectionsModalProps> = ({
     locationName + ' ' + address
   )}`;
 
+  const embedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(
+    address
+  )}&z=15&output=embed&hl=en`;
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md bg-[#181c22] border-2 border-white text-[#f1f5f9] shadow-[8px_8px_0px_#000000] p-6 space-y-5">
+      <div className="relative w-full max-w-lg bg-[#181c22] border-2 border-white text-[#f1f5f9] shadow-[8px_8px_0px_#000000] p-6 space-y-4 max-h-[90vh] overflow-y-auto">
         
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#374151] pb-3">
@@ -45,6 +49,18 @@ export const LiveDirectionsModal: React.FC<LiveDirectionsModalProps> = ({
           >
             <X className="w-5 h-5" />
           </button>
+        </div>
+
+        {/* Interactive Google Map Preview */}
+        <div className="w-full h-44 border border-[#374151] overflow-hidden relative shadow-[2px_2px_0px_#000]">
+          <iframe
+            title={`Map for ${locationName}`}
+            src={embedUrl}
+            className="w-full h-full border-0 filter contrast-[1.05]"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
 
         {/* Location Box */}
@@ -84,29 +100,31 @@ export const LiveDirectionsModal: React.FC<LiveDirectionsModalProps> = ({
               rel="noopener noreferrer"
               className="bg-[#dc2626] text-white font-['Montserrat'] font-black uppercase text-xs p-3 border border-white shadow-[3px_3px_0px_#ffffff] hover:bg-[#b91c1c] transition-all flex items-center justify-between"
             >
-              <span>Open Google Maps</span>
+              <span>Open in Google Maps</span>
               <ExternalLink className="w-4 h-4" />
             </a>
 
-            <a
-              href={appleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#111418] text-white hover:text-[#fbbf24] hover:border-[#fbbf24] font-['Montserrat'] font-bold uppercase text-xs p-3 border border-[#374151] transition-all flex items-center justify-between"
-            >
-              <span>Open Apple Maps</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
+            <div className="grid grid-cols-2 gap-2">
+              <a
+                href={appleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#111418] text-white hover:text-[#fbbf24] hover:border-[#fbbf24] font-['Montserrat'] font-bold uppercase text-xs p-2.5 border border-[#374151] transition-all flex items-center justify-between"
+              >
+                <span>Apple Maps</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
 
-            <a
-              href={wazeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#111418] text-white hover:text-[#fbbf24] hover:border-[#fbbf24] font-['Montserrat'] font-bold uppercase text-xs p-3 border border-[#374151] transition-all flex items-center justify-between"
-            >
-              <span>Open Waze Navigation</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
+              <a
+                href={wazeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#111418] text-white hover:text-[#fbbf24] hover:border-[#fbbf24] font-['Montserrat'] font-bold uppercase text-xs p-2.5 border border-[#374151] transition-all flex items-center justify-between"
+              >
+                <span>Waze</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

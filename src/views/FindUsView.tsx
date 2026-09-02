@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LIVE_TRUCK_STATUS, WEEKLY_ROUTE, SPECIAL_EVENTS } from '../data/truckData';
-import { BRAND_ASSETS } from '../data/menuData';
+import { GoogleTruckMap } from '../components/GoogleTruckMap';
 import { ScheduleDay } from '../types';
 import { Navigation, Route, Calendar, Bell, ArrowRight, Check, ExternalLink } from 'lucide-react';
 
@@ -35,70 +35,12 @@ export const FindUsView: React.FC<FindUsViewProps> = ({ onOpenDirections }) => {
           </p>
         </div>
 
-        {/* Map Container */}
+        {/* Live Interactive Google Map Container */}
         <div className="px-4 sm:px-12 mb-10 w-full">
-          <div className="relative">
-            {/* Hard Shadow */}
-            <div className="absolute inset-0 bg-[#dc2626] translate-y-[6px] translate-x-[4px]"></div>
-
-            <div className="relative bg-[#181c22] border-2 border-white overflow-hidden h-[340px] sm:h-[420px] w-full flex flex-col shadow-lg">
-              {/* The Map Visual */}
-              <div
-                className="flex-1 w-full bg-cover bg-center relative"
-                style={{ backgroundImage: `url('${BRAND_ASSETS.mapView}')` }}
-              >
-                {/* Active Truck Marker Overlay */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#111418] border-2 border-[#dc2626] p-2 flex items-center gap-2 shadow-[4px_4px_0px_#000] cursor-pointer hover:scale-105 transition-transform">
-                  <div className="w-3.5 h-3.5 rounded-full bg-[#dc2626] animate-ping"></div>
-                  <div>
-                    <p className="text-[10px] font-black uppercase font-['Montserrat'] text-white">
-                      🚚 Taco Joe Rig
-                    </p>
-                    <p className="text-[9px] text-[#fbbf24] font-mono">{LIVE_TRUCK_STATUS.currentLocationName}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Current Location Status Bar */}
-              <div className="bg-[#181c22] border-t-2 border-[#374151] p-3 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-3 z-10">
-                <div className="flex items-center gap-3 w-full sm:w-auto">
-                  <span className="relative flex h-3.5 w-3.5 shrink-0">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#dc2626] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#dc2626]"></span>
-                  </span>
-                  <div>
-                    <span className="font-['Work_Sans'] font-bold text-xs uppercase tracking-wider text-white block">
-                      Live: {LIVE_TRUCK_STATUS.currentLocationName}
-                    </span>
-                    <span className="text-[11px] text-[#94a3b8] block">
-                      {LIVE_TRUCK_STATUS.todayHours} • {LIVE_TRUCK_STATUS.nearDetail}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex gap-2 w-full sm:w-auto">
-                  <button
-                    onClick={() =>
-                      onOpenDirections(LIVE_TRUCK_STATUS.currentLocationName, LIVE_TRUCK_STATUS.streetAddress)
-                    }
-                    className="flex-1 sm:flex-none bg-[#dc2626] text-white px-4 py-2 font-['Work_Sans'] font-bold text-xs uppercase border border-white hover:bg-[#b91c1c] transition-colors flex items-center justify-center gap-1.5 shadow-[2px_2px_0px_#ffffff]"
-                  >
-                    <Navigation className="w-3.5 h-3.5" />
-                    <span>Get Directions</span>
-                  </button>
-                  <a
-                    href={`https://maps.google.com/?q=${encodeURIComponent(LIVE_TRUCK_STATUS.streetAddress)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 border border-[#374151] bg-[#111418] hover:border-[#fbbf24] text-white flex items-center justify-center"
-                    title="Open in Google Maps"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <GoogleTruckMap
+            onOpenDirections={onOpenDirections}
+            height="460px"
+          />
         </div>
 
         {/* Weekly Route Section */}
