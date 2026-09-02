@@ -1,265 +1,395 @@
 import { MenuItem } from '../types';
 
 export const MENU_ITEMS: MenuItem[] = [
-  // Street Tacos
+  // --- STREET TACOS ---
   {
-    id: 'al-pastor',
-    name: 'Al Pastor',
+    id: 'carne-asada-taco',
+    name: 'Carne Asada Taco',
     category: 'tacos',
-    price: 4.50,
-    description: 'Slow-roasted pork shoulder, adobo marinade, sweet pineapple chunks, white onion, cilantro, salsa verde on double corn tortillas.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD1cdL3sUSgK8yQijNmrDInvvGa88Exumz-DvWsWhy458w1_6ds8KR16_8UiPBHjSNgmbhqmv3VPvR2Wt3LW9-Tk_FEoY9fF-OxO4iN9AGchWUnNqPQ20U7TACdyBsLudjlvtSCF6Ej5OXfVDQ-34BzCLEuG5FHEBtZJ7gVXeTW-NzdTUHcRZaj7YQkJBzBTN_ckrW14NiDiyM69OavTBlJ2WPktN6War6oSQ8nKXWYat2LwqogTMsO',
-    tags: ['Pork', 'Spicy'],
-    spicyLevel: 2,
-    options: {
-      salsas: ['Salsa Verde (Mild)', 'Salsa Roja (Medium)', 'Habanero Fire (Hot)', 'Salsa Macha (Smoky Hot)'],
-      addOns: [
-        { id: 'guac', name: 'Fresh Guacamole', price: 1.00 },
-        { id: 'queso', name: 'Cotija & Oaxaca Cheese', price: 0.75 },
-        { id: 'double-meat', name: 'Extra Al Pastor', price: 1.75 }
-      ]
-    }
-  },
-  {
-    id: 'carne-asada',
-    name: 'Carne Asada',
-    category: 'tacos',
-    price: 5.00,
-    description: 'Citrus-marinated skirt steak, fire-grilled, topped with guacamole, raw white onion, fresh cilantro, and authentic salsa roja on double corn tortillas.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBs9qzC95Dm4SHGIOI6UC_qJHFSZ_rxe8rPRGJ4Ewwu2mJ4VyXBcGTZmTPG8JmkMeOp5tLNz13VxREuc1eOR0rV4jezH6YGjRxlHgvnQPKmPiFGHOHBicX7HnfbOEEoDi9L23uAPWvUDH1minkwepxivWQDV_-wr796HDjZOFFU0S2tJswwkxKXIVBi4U3bzIUhN_34cEdaGCRtot5aCRmYCqBCK0LA53_eBcl2-itRrccZO-jEdWYe',
+    price: 7.00,
+    description: 'Tender grilled steak, fresh pico de gallo, house guacamole & signature avocado ranch on warm double corn tortillas.',
+    image: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=800&q=80',
     tags: ['Beef', 'Best Seller'],
     isBestSeller: true,
     spicyLevel: 1,
     options: {
-      salsas: ['Salsa Roja (Medium)', 'Salsa Verde (Mild)', 'Habanero Fire (Hot)', 'Salsa Macha (Smoky Hot)'],
+      proteinChoices: [
+        { id: 'single', name: 'Single Taco', price: 0 },
+        { id: 'double', name: 'Two Tacos ($13)', price: 6.00 },
+        { id: 'trio', name: 'Three Tacos ($18)', price: 11.00 }
+      ],
+      salsas: ['Avocado Ranch', 'Fresh Pico de Gallo', 'Sweet Corn Salsa', 'Sour Cream'],
       addOns: [
-        { id: 'guac', name: 'Extra Guacamole', price: 1.00 },
-        { id: 'queso', name: 'Melted Oaxaca Cheese', price: 0.75 },
-        { id: 'double-meat', name: 'Extra Steak', price: 2.00 }
+        { id: 'extra-guac', name: 'Side Guacamole', price: 3.00 },
+        { id: 'extra-sour', name: 'Side Sour Cream', price: 1.00 },
+        { id: 'extra-cheese', name: 'Extra Melted Cheese', price: 1.00 }
       ]
     }
   },
   {
-    id: 'baja-fish',
-    name: 'Baja Fish',
+    id: 'pork-carnitas-taco',
+    name: 'Pork Carnitas Taco',
     category: 'tacos',
-    price: 5.00,
-    description: 'Crispy beer-battered Gulf of Maine cod, crunchy purple cabbage slaw, pico de gallo, lime wedge, signature smoky white crema.',
-    image: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=800&q=80',
-    tags: ['Seafood', 'Crispy'],
-    spicyLevel: 1,
-    options: {
-      salsas: ['Signature White Crema', 'Salsa Verde', 'Habanero Mango'],
-      addOns: [
-        { id: 'guac', name: 'Fresh Guacamole', price: 1.00 },
-        { id: 'jalapeno', name: 'Pickled Jalapeños', price: 0.50 }
-      ]
-    }
-  },
-  {
-    id: 'birria-quesatacos',
-    name: 'Birria Quesa-Taco',
-    category: 'tacos',
-    price: 5.50,
-    description: 'Slow-braised beef chuck shredded in rich chile consome, griddled crispy with molten Oaxaca cheese, served with hot dipping broth.',
+    price: 7.00,
+    description: 'Slow-cooked juicy pulled pork, cilantro-lime rice, and sweet fire-roasted corn salsa on warm double corn tortillas.',
     image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80',
-    tags: ['Beef', 'Spicy', 'Best Seller'],
-    isBestSeller: true,
-    spicyLevel: 2,
-    options: {
-      salsas: ['Rich Chile Consomé Dipping Cup (Included)', 'Extra Consomé Cup (+$1.50)'],
-      addOns: [
-        { id: 'extra-cheese', name: 'Double Oaxaca Cheese', price: 1.00 },
-        { id: 'consome', name: 'Extra Consomé Cup', price: 1.50 }
-      ]
-    }
-  },
-  {
-    id: 'maine-lobster-taco',
-    name: 'Maine Lobster Street Taco',
-    category: 'tacos',
-    price: 8.50,
-    description: 'Fresh local Midcoast Maine lobster tail meat poached in spiced chili-lime butter, charred corn relish, chipotle crema, micro cilantro.',
-    image: 'https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=800&q=80',
-    tags: ['Seafood', 'Special', 'Local Maine'],
-    spicyLevel: 1,
-    options: {
-      salsas: ['Chipotle Crema', 'Mango Habanero Salsa', 'Lemon Lime Butter'],
-      addOns: [
-        { id: 'avocado', name: 'Sliced Avocado', price: 1.25 },
-        { id: 'bacon', name: 'Crispy Crumbled Bacon', price: 1.25 }
-      ]
-    }
-  },
-  {
-    id: 'crispy-avocado',
-    name: 'Crispy Avocado & Black Bean',
-    category: 'tacos',
-    price: 4.25,
-    description: 'Panko-crusted fresh avocado slices, seasoned black beans, pickled red onion, roasted corn, cilantro vegan lime crema.',
-    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80',
-    tags: ['Vegetarian', 'Vegan Option'],
-    spicyLevel: 1,
-    options: {
-      salsas: ['Vegan Lime Crema', 'Salsa Verde', 'Pico de Gallo'],
-      addOns: [
-        { id: 'cotija', name: 'Cotija Cheese (Non-Vegan)', price: 0.75 },
-        { id: 'mushrooms', name: 'Charred Portobello', price: 1.25 }
-      ]
-    }
-  },
-
-  // Mission Burritos
-  {
-    id: 'el-gigante-burrito',
-    name: 'El Gigante Mission Burrito',
-    category: 'burritos',
-    price: 12.50,
-    description: 'Choice of grilled Carne Asada or Al Pastor, cilantro-lime rice, slow-simmered pinto beans, melted jack cheese, pico de gallo, salsa, rolled in a grilled 12-inch flour tortilla.',
-    image: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80',
-    tags: ['Beef', 'Pork', 'Best Seller'],
+    tags: ['Pork', 'Best Seller'],
     isBestSeller: true,
     spicyLevel: 1,
     options: {
       proteinChoices: [
-        { id: 'carne', name: 'Carne Asada Steak', price: 0 },
-        { id: 'pastor', name: 'Al Pastor Spiced Pork', price: 0 },
-        { id: 'birria', name: 'Birria Braised Beef (+$1.50)', price: 1.50 },
-        { id: 'veggie', name: 'Avocado & Charred Veggies', price: 0 }
+        { id: 'single', name: 'Single Taco', price: 0 },
+        { id: 'double', name: 'Two Tacos ($13)', price: 6.00 },
+        { id: 'trio', name: 'Three Tacos ($18)', price: 11.00 }
       ],
-      salsas: ['Salsa Roja (Medium)', 'Salsa Verde (Mild)', 'Habanero Fire (Hot)'],
+      salsas: ['Sweet Corn Salsa', 'Fresh Pico de Gallo', 'Avocado Ranch', 'Sour Cream'],
       addOns: [
-        { id: 'guac-inside', name: 'Guacamole Inside', price: 1.75 },
-        { id: 'sour-cream', name: 'Mexican Crema', price: 0.75 },
-        { id: 'wet-style', name: 'Make it Wet (Smothered with Salsa & Cheese)', price: 2.50 }
+        { id: 'extra-guac', name: 'Side Guacamole', price: 3.00 },
+        { id: 'extra-sour', name: 'Side Sour Cream', price: 1.00 }
       ]
     }
   },
   {
-    id: 'cali-fries-burrito',
-    name: 'Cali Style Rig Burrito',
-    category: 'burritos',
-    price: 13.00,
-    description: 'Carne asada, crispy golden french fries inside, guacamole, crema, melted four-cheese blend, and spicy chipotle mayo.',
-    image: 'https://images.unsplash.com/photo-1566740933430-b5e70b06d2d5?auto=format&fit=crop&w=800&q=80',
-    tags: ['Beef', 'Spicy'],
+    id: 'pork-chorizo-taco',
+    name: 'Pork Chorizo Taco',
+    category: 'tacos',
+    price: 7.00,
+    description: 'Fire-sizzled spiced Mexican pork chorizo, cilantro-lime rice, and sweet fire-roasted corn salsa on warm double corn tortillas.',
+    image: 'https://images.unsplash.com/photo-1613514785940-daed07799d9b?auto=format&fit=crop&w=800&q=80',
+    tags: ['Pork', 'Spicy'],
     spicyLevel: 2,
     options: {
-      salsas: ['Chipotle Mayo', 'Salsa Roja', 'Habanero Hot'],
+      proteinChoices: [
+        { id: 'single', name: 'Single Taco', price: 0 },
+        { id: 'double', name: 'Two Tacos ($13)', price: 6.00 },
+        { id: 'trio', name: 'Three Tacos ($18)', price: 11.00 }
+      ],
+      salsas: ['Sweet Corn Salsa', 'Fresh Pico de Gallo', 'Avocado Ranch'],
       addOns: [
-        { id: 'bacon', name: 'Crispy Bacon Bits', price: 1.50 },
-        { id: 'jalapenos', name: 'Grilled Jalapeños', price: 0.75 }
+        { id: 'extra-guac', name: 'Side Guacamole', price: 3.00 },
+        { id: 'extra-sour', name: 'Side Sour Cream', price: 1.00 }
+      ]
+    }
+  },
+  {
+    id: 'seasoned-chicken-taco',
+    name: 'Seasoned Chicken Taco',
+    category: 'tacos',
+    price: 7.00,
+    description: 'Grilled seasoned chicken breast, fresh pico de gallo, shredded mixed cheese, and signature avocado ranch drizzle.',
+    image: 'https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=800&q=80',
+    tags: ['Chicken'],
+    spicyLevel: 1,
+    options: {
+      proteinChoices: [
+        { id: 'single', name: 'Single Taco', price: 0 },
+        { id: 'double', name: 'Two Tacos ($13)', price: 6.00 },
+        { id: 'trio', name: 'Three Tacos ($18)', price: 11.00 }
+      ],
+      salsas: ['Avocado Ranch', 'Fresh Pico de Gallo', 'Sour Cream'],
+      addOns: [
+        { id: 'extra-guac', name: 'Side Guacamole', price: 3.00 },
+        { id: 'extra-sour', name: 'Side Sour Cream', price: 1.00 }
+      ]
+    }
+  },
+  {
+    id: 'street-taco-trio',
+    name: 'Three Street Tacos Combo',
+    category: 'tacos',
+    price: 18.00,
+    description: 'Mix and match any 3 street tacos (Carne Asada, Pork Carnitas, Pork Chorizo, or Seasoned Chicken) on double corn tortillas with limes and salsas.',
+    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80',
+    tags: ['Best Value', 'Best Seller'],
+    isBestSeller: true,
+    spicyLevel: 1,
+    options: {
+      proteinChoices: [
+        { id: 'all-asada', name: '3x Carne Asada Steak', price: 0 },
+        { id: 'all-carnitas', name: '3x Pork Carnitas', price: 0 },
+        { id: 'all-chicken', name: '3x Seasoned Chicken', price: 0 },
+        { id: 'mixed-trio', name: 'Mixed (1 Asada, 1 Carnitas, 1 Chicken)', price: 0 },
+        { id: 'chorizo-mix', name: 'Mixed with Pork Chorizo', price: 0 }
+      ],
+      salsas: ['Avocado Ranch & Pico', 'Corn Salsa & Pico', 'All Sauces on Side'],
+      addOns: [
+        { id: 'extra-guac', name: 'Add Side Guacamole', price: 3.00 },
+        { id: 'extra-sour', name: 'Add Side Sour Cream', price: 1.00 }
       ]
     }
   },
 
-  // Sides & Extras
+  // --- 12" BURRITOS ---
   {
-    id: 'street-corn-elote',
-    name: 'Street Corn (Elote en Vaso)',
-    category: 'sides',
-    price: 4.50,
-    description: 'Charred sweet corn cut off the cob, garlic chipotle butter, cotija cheese, chili powder blend, lime juice, cilantro.',
-    image: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=800&q=80',
-    tags: ['Vegetarian', 'Spicy', 'Best Seller'],
-    spicyLevel: 1
-  },
-  {
-    id: 'chips-guac-salsa',
-    name: 'Fresh Guac & Warm Tortilla Chips',
-    category: 'sides',
-    price: 5.50,
-    description: 'Hand-mashed Haas avocados with lime, serrano pepper, cilantro, sea salt, served with fresh fried house corn tortilla chips and salsa.',
-    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80',
-    tags: ['Vegan', 'Gluten-Free']
-  },
-  {
-    id: 'queso-blanco',
-    name: 'Melted Queso Blanco Dip & Chips',
-    category: 'sides',
-    price: 4.50,
-    description: 'Creamy melted Oaxaca and Monterey Jack cheese spiked with roasted green chiles and tomatoes. Comes with warm chips.',
-    image: 'https://images.unsplash.com/photo-1570461226513-e08b58a52c53?auto=format&fit=crop&w=800&q=80',
-    tags: ['Vegetarian']
-  },
-  {
-    id: 'churro-bites',
-    name: 'Cinnamon Sugar Churro Bites',
-    category: 'sides',
-    price: 5.00,
-    description: 'Golden crispy churro dough bites rolled in Mexican cinnamon and turbinado sugar, served with warm spiced chocolate dipping sauce.',
-    image: 'https://images.unsplash.com/photo-1624300629298-e9de39c13be5?auto=format&fit=crop&w=800&q=80',
-    tags: ['Sweet', 'Dessert']
-  },
-
-  // Drinks
-  {
-    id: 'mexican-jarritos',
-    name: 'Mexican Jarritos Soda',
-    category: 'drinks',
-    price: 3.25,
-    description: 'Authentic Mexican sodas sweetened with pure cane sugar. Flavors: Mandarin, Tamarind, Lime, Pineapple, or Grapefruit.',
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80',
-    tags: ['Drink'],
+    id: 'carnivore-burrito',
+    name: 'Carnivore Burrito (12")',
+    category: 'burritos',
+    price: 15.00,
+    description: '12-inch warm flour tortilla packed with your choice of protein (Carne Asada Steak, Seasoned Chicken, Pork Chorizo, or Carnitas), cilantro-lime rice, black beans, sweet corn salsa, fresh pico de gallo, and mixed cheese.',
+    image: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80',
+    tags: ['Beef', 'Pork', 'Chicken', 'Best Seller'],
+    isBestSeller: true,
+    spicyLevel: 1,
     options: {
-      salsas: ['Mandarin (Orange)', 'Tamarind', 'Lime', 'Pineapple', 'Mango']
+      proteinChoices: [
+        { id: 'carne-asada', name: 'Carne Asada (Grilled Steak)', price: 0 },
+        { id: 'seasoned-chicken', name: 'Seasoned Chicken', price: 0 },
+        { id: 'pork-chorizo', name: 'Pork Chorizo', price: 0 },
+        { id: 'pork-carnitas', name: 'Pork Carnitas', price: 0 }
+      ],
+      salsas: ['Pico de Gallo & Corn Salsa', 'Extra Pico de Gallo', 'Avocado Ranch Inside'],
+      addOns: [
+        { id: 'add-guac', name: 'Add Fresh Guacamole (+ $3)', price: 3.00 },
+        { id: 'add-sour', name: 'Add Sour Cream (+ $1)', price: 1.00 },
+        { id: 'add-avo-ranch', name: 'Add Avocado Ranch (+ $1)', price: 1.00 }
+      ]
     }
   },
   {
-    id: 'house-horchata',
-    name: 'Housemade Horchata',
-    category: 'drinks',
-    price: 4.00,
-    description: 'Traditional sweet rice and almond milk beverage infused with canela (cinnamon) and vanilla, served over crushed ice.',
-    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80',
-    tags: ['Drink', 'Sweet', 'House Specialty']
-  },
-  {
-    id: 'hibiscus-jamaica',
-    name: 'Agua de Jamaica (Hibiscus)',
-    category: 'drinks',
-    price: 3.75,
-    description: 'Tart, refreshing iced hibiscus flower tea brewed fresh with a touch of agave nectar and fresh lime.',
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80',
-    tags: ['Drink', 'Refreshing']
-  },
-  {
-    id: 'mexican-coke',
-    name: 'Mexican Coca-Cola (Glass Bottle)',
-    category: 'drinks',
-    price: 3.50,
-    description: 'Classic 12oz glass bottle Mexican Coke made with real cane sugar.',
-    image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=80',
-    tags: ['Drink']
+    id: 'vegan-burrito',
+    name: 'Vegan Burrito (12")',
+    category: 'burritos',
+    price: 12.00,
+    description: '12-inch warm flour tortilla loaded with seasoned cilantro-lime rice, seasoned black beans, sweet corn salsa, fresh pico de gallo, and shredded crisp lettuce. 100% plant-based.',
+    image: 'https://images.unsplash.com/photo-1566740933430-b5e70b06d2d5?auto=format&fit=crop&w=800&q=80',
+    tags: ['Vegan', 'Vegetarian'],
+    spicyLevel: 0,
+    options: {
+      salsas: ['Corn Salsa & Pico de Gallo', 'Extra Pico de Gallo'],
+      addOns: [
+        { id: 'add-guac', name: 'Add Fresh Guacamole (+ $3)', price: 3.00 },
+        { id: 'add-sour-nonvegan', name: 'Add Sour Cream (Non-Vegan) (+ $1)', price: 1.00 }
+      ]
+    }
   },
 
-  // Combos & Specials
+  // --- 12" QUESADILLAS ---
   {
-    id: 'taco-trio-combo',
-    name: 'The Rig 3-Taco Combo Box',
-    category: 'specials',
-    price: 13.50,
-    description: 'Pick any three street tacos, served with a side of warm tortilla chips, homemade salsa roja & verde, and a cold canned beverage.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD1cdL3sUSgK8yQijNmrDInvvGa88Exumz-DvWsWhy458w1_6ds8KR16_8UiPBHjSNgmbhqmv3VPvR2Wt3LW9-Tk_FEoY9fF-OxO4iN9AGchWUnNqPQ20U7TACdyBsLudjlvtSCF6Ej5OXfVDQ-34BzCLEuG5FHEBtZJ7gVXeTW-NzdTUHcRZaj7YQkJBzBTN_ckrW14NiDiyM69OavTBlJ2WPktN6War6oSQ8nKXWYat2LwqogTMsO',
-    tags: ['Combo', 'Best Value'],
+    id: 'cheese-quesadilla',
+    name: 'Cheese Quesadilla (12")',
+    category: 'quesadillas',
+    price: 10.00,
+    description: '12-inch flour tortilla grilled to golden crisp with melted mixed cheese and fresh pico de gallo. Served with side sour cream and house avocado ranch.',
+    image: 'https://images.unsplash.com/photo-1618040996337-56904b7850b9?auto=format&fit=crop&w=800&q=80',
+    tags: ['Vegetarian'],
+    spicyLevel: 0,
+    options: {
+      salsas: ['Side Sour Cream & Avocado Ranch (Included)'],
+      addOns: [
+        { id: 'add-guac', name: 'Side Guacamole', price: 3.00 },
+        { id: 'extra-sour', name: 'Extra Sour Cream', price: 1.00 },
+        { id: 'extra-cheese', name: 'Extra Melted Cheese', price: 1.50 }
+      ]
+    }
+  },
+  {
+    id: 'carnivore-quesadilla',
+    name: 'Carnivore Quesadilla (12")',
+    category: 'quesadillas',
+    price: 13.00,
+    description: '12-inch flour tortilla filled with your choice of protein (Carne Asada Steak, Seasoned Chicken, or Chorizo), melted mixed cheese, and fresh pico de gallo. Served with side sour cream and avocado ranch.',
+    image: 'https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=800&q=80',
+    tags: ['Beef', 'Chicken', 'Pork', 'Best Seller'],
+    isBestSeller: true,
+    spicyLevel: 1,
+    options: {
+      proteinChoices: [
+        { id: 'carne-asada', name: 'Carne Asada Steak', price: 0 },
+        { id: 'seasoned-chicken', name: 'Seasoned Chicken', price: 0 },
+        { id: 'pork-chorizo', name: 'Pork Chorizo', price: 0 }
+      ],
+      salsas: ['Side Sour Cream & Avocado Ranch (Included)'],
+      addOns: [
+        { id: 'add-guac', name: 'Side Guacamole', price: 3.00 },
+        { id: 'extra-sour', name: 'Extra Sour Cream', price: 1.00 }
+      ]
+    }
+  },
+
+  // --- SANDWICHES & GRILL ---
+  {
+    id: 'smash-burger',
+    name: 'Smash Burger & Fries',
+    category: 'sandwiches',
+    price: 13.00,
+    description: 'Two smashed beef patties with crispy seared edges, melted American cheese, sweet grilled onions, and side BBQ sauce. Served with hot french fries and a pickle spear.',
+    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80',
+    tags: ['Beef', 'Grill Classic', 'Best Seller'],
+    isBestSeller: true,
+    spicyLevel: 0,
+    options: {
+      salsas: ['Side BBQ Sauce (Included)', 'Side Avocado Ranch', 'Extra BBQ Sauce'],
+      addOns: [
+        { id: 'extra-patty', name: 'Extra Smash Patty', price: 3.00 },
+        { id: 'side-guac', name: 'Side Guacamole', price: 3.00 }
+      ]
+    }
+  },
+  {
+    id: 'grilled-chicken-wrap',
+    name: 'Grilled Chicken Wrap & Fries',
+    category: 'sandwiches',
+    price: 13.00,
+    description: 'Grilled sliced seasoned chicken breast, crisp lettuce, fresh pico de gallo, mixed cheese, and signature avocado ranch in a warm tortilla wrap. Served with hot french fries and a pickle spear.',
+    image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80',
+    tags: ['Chicken', 'Grill Classic'],
+    spicyLevel: 0,
+    options: {
+      salsas: ['Avocado Ranch (Inside & Side)', 'Side BBQ Sauce'],
+      addOns: [
+        { id: 'side-guac', name: 'Side Guacamole', price: 3.00 },
+        { id: 'extra-sour', name: 'Side Sour Cream', price: 1.00 }
+      ]
+    }
+  },
+
+  // --- CHIPS & SCRATCH SALSAS ---
+  {
+    id: 'chips-and-guac',
+    name: 'Chips & Guacamole',
+    category: 'sides',
+    price: 8.00,
+    description: 'Crispy warm fried corn tortilla chips with a generous bowl of freshly mashed house guacamole (Vegan).',
+    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80',
+    tags: ['Vegan', 'Gluten-Free', 'Best Seller'],
     isBestSeller: true
   },
   {
-    id: 'taco-party-pack',
-    name: 'Tailgate Taco Box (10 Tacos)',
-    category: 'specials',
-    price: 42.00,
-    description: 'Ten assorted street tacos of your choice (Al Pastor, Carne Asada, Baja Fish, or Carnitas) with large chips, guac, salsa flight, and pickled escabeche.',
-    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80',
-    tags: ['Family Pack', 'Party']
+    id: 'side-guacamole',
+    name: 'Side Guacamole',
+    category: 'sides',
+    price: 3.00,
+    description: 'Fresh hand-mashed ripe avocado with fresh lime juice, cilantro, and sea salt.',
+    image: 'https://images.unsplash.com/photo-1604467794349-0b74285de7e7?auto=format&fit=crop&w=800&q=80',
+    tags: ['Vegan', 'Gluten-Free']
+  },
+  {
+    id: 'side-pico',
+    name: 'Side Pico de Gallo',
+    category: 'sides',
+    price: 2.00,
+    description: 'Diced Roma tomatoes, crisp white onion, diced jalapeño, fresh cilantro, and lime juice.',
+    image: 'https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?auto=format&fit=crop&w=800&q=80',
+    tags: ['Vegan', 'Gluten-Free']
+  },
+  {
+    id: 'side-corn-salsa',
+    name: 'Side Sweet Corn Salsa',
+    category: 'sides',
+    price: 2.00,
+    description: 'Fire-roasted sweet Maine corn tossed with diced peppers, red onion, cilantro, and citrus.',
+    image: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=800&q=80',
+    tags: ['Vegan', 'Gluten-Free']
+  },
+  {
+    id: 'side-sour-cream',
+    name: 'Side Sour Cream',
+    category: 'sides',
+    price: 1.00,
+    description: 'Cool, creamy sour cream dipping cup to balance the heat.',
+    image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80',
+    tags: ['Vegetarian']
+  },
+  {
+    id: 'side-french-fries',
+    name: 'Side Crispy French Fries',
+    category: 'sides',
+    price: 4.00,
+    description: 'Hot golden seasoned french fries fried fresh to order.',
+    image: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80',
+    tags: ['Vegetarian']
+  },
+
+  // --- KIDS MEALS ($8 with Fries) ---
+  {
+    id: 'kids-burger',
+    name: 'Kids Burger & Fries',
+    category: 'kids',
+    price: 8.00,
+    description: 'Single juicy grilled beef patty on a soft toasted bun, served with hot crispy french fries.',
+    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80',
+    tags: ['Kids', 'Beef']
+  },
+  {
+    id: 'kids-cheeseburger',
+    name: 'Kids Cheeseburger & Fries',
+    category: 'kids',
+    price: 8.00,
+    description: 'Single grilled beef patty with melted American cheese on a soft toasted bun, served with crispy french fries.',
+    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80',
+    tags: ['Kids', 'Beef']
+  },
+  {
+    id: 'kids-chicken-fingers',
+    name: 'Kids Chicken Fingers & Fries',
+    category: 'kids',
+    price: 8.00,
+    description: 'Crispy golden fried chicken tenders served with hot french fries and dipping sauce.',
+    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=80',
+    tags: ['Kids', 'Chicken']
+  },
+  {
+    id: 'kids-hotdog',
+    name: 'Kids Hotdog & Fries',
+    category: 'kids',
+    price: 8.00,
+    description: 'Grilled all-beef hot dog on a warm bun, served with crispy golden french fries.',
+    image: 'https://images.unsplash.com/photo-1619740455993-9e612b1af08a?auto=format&fit=crop&w=800&q=80',
+    tags: ['Kids']
+  },
+
+  // --- COLD DRINKS & COFFEE ---
+  {
+    id: 'drink-water',
+    name: 'Bottled Ice Cold Water',
+    category: 'drinks',
+    price: 2.00,
+    description: 'Chilled 16.9oz pure spring water bottle.',
+    image: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=800&q=80',
+    tags: ['Drink']
+  },
+  {
+    id: 'drink-soda',
+    name: 'Canned Soda',
+    category: 'drinks',
+    price: 2.00,
+    description: 'Ice cold 12oz can. Choice of Coca-Cola, Diet Coke, Sprite, or Ginger Ale.',
+    image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=80',
+    tags: ['Drink'],
+    options: {
+      salsas: ['Coca-Cola', 'Diet Coke', 'Sprite', 'Ginger Ale']
+    }
+  },
+  {
+    id: 'drink-gatorade',
+    name: 'Gatorade Sports Drink (20oz)',
+    category: 'drinks',
+    price: 3.00,
+    description: 'Thirst-quenching 20oz ice cold Gatorade Thirst Quencher bottle. Available in Cool Blue, Lemon-Lime, Fruit Punch, or Orange.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Gatorade_%2814293776364%29.jpg/800px-Gatorade_%2814293776364%29.jpg',
+    tags: ['Drink'],
+    options: {
+      salsas: ['Cool Blue', 'Lemon-Lime', 'Fruit Punch', 'Orange']
+    }
+  },
+  {
+    id: 'drink-coffee',
+    name: 'Fresh Hot Coffee',
+    category: 'drinks',
+    price: 2.00,
+    description: 'Freshly brewed hot Maine roasted coffee.',
+    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
+    tags: ['Drink', 'Hot']
   }
 ];
 
 export const BRAND_ASSETS = {
+  // Taco Joe Facebook brand asset URLs
   logo: 'https://lh3.googleusercontent.com/aida/AEtjO1UHY3m6QiVjDS5CgWpXPKLsUNBydfcfClLEreMc9GLt7KOzEIrYMh3FtbCS6178GQjkUgNaF5iYOZ801dgC2p3BEMQPaaa-oBy1zO5p1CCcrRaUOZpd2onEpltY63WiqtVIj89hX0qOjPcrU2uzYJlXpPG3_EK4IvLpHHKPFUUw3MZ8ryhqCebOaKM4lESNCdm7JPjX4QeoZKnyNxgOBz5usvjK-wJ0WPPMsBhYyZewaamNcFGVFLONC5MzZCowKcOm0CAy06sPJw',
-  heroBg: 'https://lh3.googleusercontent.com/aida/AEtjO1UMvOcRWoTguxJySnZaaW93o3hRF_YfZV0jrxsOEE_HUS1yHHiQY0y540kSxw3yBtREx81ujkdgA-ZF2jD2mcVgs4I9qyNl2y6OvUxdvX-06qMPX-SfwO4GCTR2aF-wCAxk17ONP_57OowiA3qwGRm40tG6icj0Z0Gj3t0Ncn7KaS8dVZ0E_sTQxjcmbtwU5Hpc5bv89SWsE4YrD4oyaj0qrOxeahwDaFSriRYzHkJFEA2XuxW0hWFiCJg',
-  chefCooking: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD0ytGke3zQcFMdxADAQTGnmHV1HMMYu1XEAxs8FF1jZG7b9biBQL2LnVRdcFZP2P9WO-ee7rRT8orzvmdCasR8oq392m73jQ8QNpmlKkCiTKvtwQA2fVddzRrQCiDnzf3xwWZt9v68TF9DiAXSy2ttvfEGAOMycOlrMQ1fVMU5x2cQpC2ou8YNLueRDWq46WMKMQ-4F6bZhvvXR2R0eJCr5PWEZZMGdAePdgX3EuWuK_SUUJ9vS2z9',
-  truckBrandingArt: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCf1ePLzmych-LWoQKg6ftR9NX56IylMpYcOdXiqGL02Sz81lq6-QG_RRtCE0qHM-3XLaZiniMrmS2vCyGt2fgDHBoOvjDgHrx39lciMtABH2RFZcczKNxKGwgcHnMwGMmf8tGOop0KIm3NrkfyBFflCfrw4Ck4RpZsDAPY1ZHmWW0JwVFvGeI82UihBmwf5VjbmAgNxH5AHXYQ9m3BywGGukhE0oDCl1cnSmewURzCOrZtY0EHWpLHEpwA5JY_wsK-fQ',
+  heroBg: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1600&q=80',
+  truckFoodPrep: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=800&q=80',
+  tacoSpread: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80',
+  menuBoardPhoto: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
   mapView: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAoNa53hUgANLfGyZM6ysKxeDBg3BjRqcQHBbdgdCOxd9PWJ5szIqpE1zKQ2jvQ5HynjNmBKZNSHQGdzTs3X62FsdmKsrk7i2cwURkhhG-F1-iaNtV9bUzBLAm_fjo0M3kvZGAQDnPvTG6WDAwn_I0wQgRhqt1wkWBfdkZURZZ-VN0Ej4yzNX614vZvoWmHOxDSvVOB2ghST7H3nmPq5tVO3SMykckqD6DZtA0uk2FVOJ_H2lgnfzKa',
-  eventsHero: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDW3Lqw-fkYzTptrxfBRh_eWr_JyyDeg2LxijC2aoOZ7e2RKV5M7aBptH6tSDpQPO9B_H3vAHNVAA21G_Fp0qFF8-sfF7St8lSBa1g5dRPOmByMaca6M55JbgzLJWRKChsZzCNZxpe-7N_2-7xGLcM8YYfGR9VhS8ACf7gL2tCi9I7V7rkKrdOrk7DBlFkOqB4QXZlGGfcsYErUwNA89hx3ZuwSrZCNTnPsKXYMn7dueOGy6iDUVUFM'
+  eventsHero: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80'
 };

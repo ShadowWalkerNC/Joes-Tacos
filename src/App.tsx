@@ -13,7 +13,7 @@ import { MenuView } from './views/MenuView';
 import { FindUsView } from './views/FindUsView';
 import { EventsView } from './views/EventsView';
 import { AboutView } from './views/AboutView';
-import { Check, Flame } from 'lucide-react';
+import { Flame } from 'lucide-react';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageView>('home');
@@ -99,6 +99,7 @@ export default function App() {
         cartItemId,
         item,
         quantity: 1,
+        selectedOptions: {},
         totalPrice: item.price
       };
       setCartItems((prev) => [...prev, newCartItem]);
@@ -134,7 +135,7 @@ export default function App() {
     setCartItems([]);
   };
 
-  const handleOrderPlaced = (orderId: string, total: number) => {
+  const handleOrderPlaced = (orderId: string, _total: number) => {
     showToast(`🔥 Rig Order #${orderId} sent to the truck!`);
   };
 
@@ -149,10 +150,10 @@ export default function App() {
   const totalCartCount = cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
 
   return (
-    <div className="bg-[#131313] min-h-screen text-[#e5e2e1] flex flex-col font-['Work_Sans']">
+    <div className="bg-[#111418] min-h-screen text-[#f1f5f9] flex flex-col font-['Work_Sans']">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-20 right-4 sm:right-8 z-50 bg-[#ff535b] text-white px-4 py-3 border-2 border-white shadow-[4px_4px_0px_#000000] font-['Work_Sans'] font-bold text-xs uppercase flex items-center gap-2 animate-in slide-in-from-top-3 duration-200">
+        <div className="fixed top-20 right-4 sm:right-8 z-50 bg-[#dc2626] text-white px-4 py-3 border-2 border-white shadow-[4px_4px_0px_#000000] font-['Work_Sans'] font-bold text-xs uppercase flex items-center gap-2 animate-in slide-in-from-top-3 duration-200">
           <Flame className="w-4 h-4 fill-current shrink-0" />
           <span>{toastMessage}</span>
         </div>
@@ -169,7 +170,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col relative w-full pt-16 bg-[#131313]">
+      <main className="flex-1 flex flex-col relative w-full pt-16 bg-[#111418]">
         {currentPage === 'home' && (
           <HomeView
             onNavigate={setCurrentPage}

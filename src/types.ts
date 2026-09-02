@@ -1,6 +1,6 @@
 export type PageView = 'home' | 'menu' | 'find-us' | 'events' | 'about';
 
-export type MenuCategory = 'all' | 'tacos' | 'burritos' | 'sides' | 'drinks' | 'specials';
+export type MenuCategory = 'all' | 'tacos' | 'burritos' | 'quesadillas' | 'sandwiches' | 'sides' | 'kids' | 'drinks';
 
 export interface MenuItemOption {
   id: string;
@@ -11,11 +11,11 @@ export interface MenuItemOption {
 export interface MenuItem {
   id: string;
   name: string;
-  category: 'tacos' | 'burritos' | 'sides' | 'drinks' | 'specials';
+  category: 'tacos' | 'burritos' | 'quesadillas' | 'sandwiches' | 'sides' | 'kids' | 'drinks';
   price: number;
   description: string;
   image: string;
-  tags: string[]; // 'Beef', 'Pork', 'Seafood', 'Spicy', 'Vegetarian', 'Gluten-Free', 'Best Seller'
+  tags: string[]; // 'Beef', 'Pork', 'Chicken', 'Vegan', 'Vegetarian', 'Kids', 'Drink', 'Best Seller'
   isBestSeller?: boolean;
   spicyLevel?: 0 | 1 | 2 | 3;
   options?: {

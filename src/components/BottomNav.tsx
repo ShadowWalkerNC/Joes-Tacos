@@ -16,7 +16,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentPage, onNavigate })
   ];
 
   return (
-    <nav className="fixed bottom-0 inset-x-0 z-50 pb-safe bg-[#353534]/95 backdrop-blur-xl border-t border-[#ffb3b1]/20 md:hidden">
+    <nav className="fixed bottom-0 inset-x-0 z-50 pb-safe bg-[#181c22]/98 backdrop-blur-xl border-t-2 border-[#374151] md:hidden">
       <div className="flex justify-around items-center h-16">
         {navItems.map((item) => {
           const isActive = currentPage === item.id;
@@ -31,8 +31,8 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentPage, onNavigate })
               aria-current={isActive ? 'page' : undefined}
               className={`flex flex-col items-center justify-center gap-1 w-full h-full transition-all ${
                 isActive
-                  ? 'text-[#ff535b] bg-[#ff535b]/15 border-t-2 border-[#ff535b]'
-                  : 'text-[#c6c6c7] hover:text-[#e5e2e1] border-t-2 border-transparent'
+                  ? 'text-[#fbbf24] bg-[#111418] border-t-2 border-[#dc2626]'
+                  : 'text-[#94a3b8] hover:text-white border-t-2 border-transparent'
               }`}
             >
               <Icon className="w-5 h-5" />

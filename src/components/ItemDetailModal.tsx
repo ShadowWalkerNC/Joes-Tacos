@@ -22,7 +22,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose,
 
   const [quantity, setQuantity] = useState(1);
   const [selectedSalsa, setSelectedSalsa] = useState<string>(
-    item.options?.salsas?.[0] || 'Salsa Roja (Medium)'
+    item.options?.salsas?.[0] || 'Avocado Ranch'
   );
   const [selectedProtein, setSelectedProtein] = useState<MenuItemOption | undefined>(
     item.options?.proteinChoices?.[0]
@@ -55,16 +55,16 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose,
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-[#201f1f] border-2 border-[#ffb3b1] text-[#e5e2e1] shadow-[8px_8px_0px_#ff535b] max-h-[90vh] flex flex-col overflow-hidden">
+      <div className="relative w-full max-w-lg bg-[#181c22] border-2 border-white text-[#f1f5f9] shadow-[8px_8px_0px_#000000] max-h-[90vh] flex flex-col overflow-hidden">
         
         {/* Header with Close */}
-        <div className="flex items-center justify-between p-4 border-b border-[#353534] bg-[#1c1b1b]">
+        <div className="flex items-center justify-between p-4 border-b border-[#374151] bg-[#111418]">
           <div className="flex items-center gap-2">
-            <span className="font-['Montserrat'] text-xs font-black uppercase text-[#ff535b] bg-[#ff535b]/15 px-2 py-0.5 border border-[#ff535b]/30">
+            <span className="font-['Montserrat'] text-xs font-black uppercase text-[#fbbf24] bg-[#1f242c] px-2 py-0.5 border border-[#374151]">
               {item.category.toUpperCase()}
             </span>
             {item.isBestSeller && (
-              <span className="bg-[#ff535b] text-white text-[10px] font-bold px-2 py-0.5 uppercase shadow-[2px_2px_0px_#000]">
+              <span className="bg-[#dc2626] text-white text-[10px] font-bold px-2 py-0.5 uppercase shadow-[2px_2px_0px_#000]">
                 Best Seller
               </span>
             )}
@@ -72,7 +72,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose,
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="w-8 h-8 flex items-center justify-center border border-[#ab8987]/30 hover:bg-[#ff535b] hover:text-white transition-colors text-[#e5e2e1]"
+            className="w-8 h-8 flex items-center justify-center border border-[#374151] hover:bg-[#dc2626] hover:text-white transition-colors text-[#f1f5f9]"
           >
             <X className="w-5 h-5" />
           </button>
@@ -81,13 +81,13 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose,
         {/* Scrollable Content */}
         <div className="overflow-y-auto p-5 space-y-5">
           {/* Item Image */}
-          <div className="relative w-full h-48 sm:h-56 border border-[#ab8987]/30 bg-[#131313] overflow-hidden">
+          <div className="relative w-full h-48 sm:h-56 border border-[#374151] bg-[#111418] overflow-hidden">
             <img
               src={item.image}
               alt={item.name}
-              className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-300"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute bottom-2 right-2 bg-[#131313]/90 border border-[#ffb3b1] px-3 py-1 font-['Montserrat'] font-black text-lg text-[#ffb3b1]">
+            <div className="absolute bottom-2 right-2 bg-[#111418]/90 border border-[#fbbf24] px-3 py-1 font-['Montserrat'] font-black text-lg text-[#fbbf24]">
               ${item.price.toFixed(2)}
             </div>
           </div>
@@ -95,44 +95,48 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose,
           {/* Title & Description */}
           <div>
             <div className="flex items-center justify-between">
-              <h2 className="font-['Montserrat'] text-2xl font-black uppercase text-[#e5e2e1]">
+              <h2 className="font-['Montserrat'] text-2xl font-black uppercase text-white">
                 {item.name}
               </h2>
               {item.spicyLevel !== undefined && item.spicyLevel > 0 && (
-                <div className="flex items-center text-[#ff535b]" title={`Spice level: ${item.spicyLevel}`}>
+                <div className="flex items-center text-[#ef4444]" title={`Spice level: ${item.spicyLevel}`}>
                   {Array.from({ length: item.spicyLevel }).map((_, i) => (
                     <Flame key={i} className="w-4 h-4 fill-current" />
                   ))}
                 </div>
               )}
             </div>
-            <p className="text-sm text-[#ab8987] mt-1 leading-relaxed">
+            <p className="text-sm text-[#cbd5e1] mt-1 leading-relaxed">
               {item.description}
             </p>
           </div>
 
           {/* Protein Choice (if any) */}
           {item.options?.proteinChoices && (
-            <div className="space-y-2 border-t border-[#353534] pt-4">
-              <label className="font-['Montserrat'] text-xs font-black uppercase tracking-wider text-[#ffb3b1] block">
-                Choose Protein / Filling
+            <div className="space-y-2 border-t border-[#374151] pt-4">
+              <label className="font-['Montserrat'] text-xs font-black uppercase tracking-wider text-[#fbbf24] block">
+                Choose Portion / Protein
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {item.options.proteinChoices.map((protein) => {
-                  const isSelected = selectedProtein?.id === protein.id;
+                {item.options.proteinChoices.map((choice) => {
+                  const isSelected = selectedProtein?.id === choice.id;
                   return (
                     <button
-                      key={protein.id}
+                      key={choice.id}
                       type="button"
-                      onClick={() => setSelectedProtein(protein)}
-                      className={`p-2.5 text-xs font-bold text-left border flex items-center justify-between transition-all ${
+                      onClick={() => setSelectedProtein(choice)}
+                      className={`p-3 text-left border flex justify-between items-center transition-all ${
                         isSelected
-                          ? 'bg-[#ff535b] text-white border-[#e5e2e1] shadow-[2px_2px_0px_#e5e2e1]'
-                          : 'bg-[#1c1b1b] text-[#e5e2e1] border-[#ab8987]/30 hover:border-[#ffb3b1]'
+                          ? 'border-[#dc2626] bg-[#dc2626]/20 text-white font-bold shadow-[2px_2px_0px_#dc2626]'
+                          : 'border-[#374151] bg-[#111418] text-[#cbd5e1] hover:border-[#94a3b8]'
                       }`}
                     >
-                      <span>{protein.name}</span>
-                      {protein.price > 0 && <span>+${protein.price.toFixed(2)}</span>}
+                      <span className="text-xs uppercase font-medium">{choice.name}</span>
+                      {choice.price > 0 && (
+                        <span className="text-xs font-mono text-[#fbbf24]">
+                          +${choice.price.toFixed(2)}
+                        </span>
+                      )}
                     </button>
                   );
                 })}
@@ -140,11 +144,11 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose,
             </div>
           )}
 
-          {/* Salsa Choice (if any) */}
+          {/* Salsa & Sauce Choice */}
           {item.options?.salsas && (
-            <div className="space-y-2 border-t border-[#353534] pt-4">
-              <label className="font-['Montserrat'] text-xs font-black uppercase tracking-wider text-[#ffb3b1] block">
-                Select House Salsa
+            <div className="space-y-2 border-t border-[#374151] pt-4">
+              <label className="font-['Montserrat'] text-xs font-black uppercase tracking-wider text-[#fbbf24] block">
+                Choose Salsa / Sauce
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {item.options.salsas.map((salsa) => {
@@ -154,14 +158,14 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose,
                       key={salsa}
                       type="button"
                       onClick={() => setSelectedSalsa(salsa)}
-                      className={`p-2.5 text-xs font-bold text-left border flex items-center justify-between transition-all ${
+                      className={`p-2.5 text-left border flex items-center justify-between text-xs transition-all ${
                         isSelected
-                          ? 'bg-[#ff535b] text-white border-[#e5e2e1] shadow-[2px_2px_0px_#e5e2e1]'
-                          : 'bg-[#1c1b1b] text-[#e5e2e1] border-[#ab8987]/30 hover:border-[#ffb3b1]'
+                          ? 'border-[#fbbf24] bg-[#fbbf24]/10 text-white font-bold shadow-[2px_2px_0px_#fbbf24]'
+                          : 'border-[#374151] bg-[#111418] text-[#cbd5e1] hover:border-[#94a3b8]'
                       }`}
                     >
                       <span>{salsa}</span>
-                      {isSelected && <Check className="w-3.5 h-3.5" />}
+                      {isSelected && <Check className="w-3.5 h-3.5 text-[#fbbf24]" />}
                     </button>
                   );
                 })}
@@ -169,37 +173,39 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose,
             </div>
           )}
 
-          {/* Add-Ons */}
-          {item.options?.addOns && item.options.addOns.length > 0 && (
-            <div className="space-y-2 border-t border-[#353534] pt-4">
-              <label className="font-['Montserrat'] text-xs font-black uppercase tracking-wider text-[#ffb3b1] block">
-                Loaded Add-Ons & Extras
+          {/* Optional Add-Ons */}
+          {item.options?.addOns && (
+            <div className="space-y-2 border-t border-[#374151] pt-4">
+              <label className="font-['Montserrat'] text-xs font-black uppercase tracking-wider text-[#fbbf24] block">
+                Extra Add-Ons
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {item.options.addOns.map((addOn) => {
-                  const isSelected = selectedAddOns.some((a) => a.id === addOn.id);
+              <div className="space-y-1.5">
+                {item.options.addOns.map((addon) => {
+                  const isChecked = selectedAddOns.some((a) => a.id === addon.id);
                   return (
                     <button
-                      key={addOn.id}
+                      key={addon.id}
                       type="button"
-                      onClick={() => toggleAddOn(addOn)}
-                      className={`p-2.5 text-xs font-bold text-left border flex items-center justify-between transition-all ${
-                        isSelected
-                          ? 'bg-[#2a2a2a] text-[#ffb3b1] border-[#ff535b] shadow-[2px_2px_0px_#ff535b]'
-                          : 'bg-[#1c1b1b] text-[#e5e2e1] border-[#ab8987]/30 hover:border-[#ffb3b1]'
+                      onClick={() => toggleAddOn(addon)}
+                      className={`w-full p-2.5 text-left border flex items-center justify-between text-xs transition-all ${
+                        isChecked
+                          ? 'border-[#dc2626] bg-[#dc2626]/10 text-white font-bold'
+                          : 'border-[#374151] bg-[#111418] text-[#cbd5e1] hover:border-[#94a3b8]'
                       }`}
                     >
                       <div className="flex items-center gap-2">
                         <div
                           className={`w-4 h-4 border flex items-center justify-center ${
-                            isSelected ? 'bg-[#ff535b] border-[#ff535b] text-white' : 'border-[#ab8987]'
+                            isChecked
+                              ? 'border-[#dc2626] bg-[#dc2626] text-white'
+                              : 'border-[#475569] bg-transparent'
                           }`}
                         >
-                          {isSelected && <Check className="w-3 h-3" />}
+                          {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
                         </div>
-                        <span>{addOn.name}</span>
+                        <span>{addon.name}</span>
                       </div>
-                      <span>+${addOn.price.toFixed(2)}</span>
+                      <span className="font-mono text-[#fbbf24]">+${addon.price.toFixed(2)}</span>
                     </button>
                   );
                 })}
@@ -208,46 +214,47 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose,
           )}
 
           {/* Special Instructions */}
-          <div className="border-t border-[#353534] pt-4">
-            <label className="font-['Montserrat'] text-xs font-black uppercase tracking-wider text-[#ffb3b1] block mb-1.5">
-              Special Instructions
+          <div className="space-y-1.5 border-t border-[#374151] pt-4">
+            <label className="font-['Montserrat'] text-xs font-black uppercase tracking-wider text-[#cbd5e1] block">
+              Special Instructions for Pitmaster Joe
             </label>
-            <input
-              type="text"
+            <textarea
               value={instructions}
               onChange={(e) => setInstructions(e.target.value)}
-              placeholder="e.g. No raw onions, salsa on the side, extra lime wedges..."
-              className="w-full bg-[#1c1b1b] border border-[#ab8987]/40 p-2.5 text-xs text-[#e5e2e1] focus:outline-none focus:border-[#ff535b]"
+              placeholder="e.g. Extra crispy, sauce on the side, no onions..."
+              rows={2}
+              className="w-full bg-[#111418] border border-[#374151] p-2.5 text-xs text-white placeholder-[#64748b] focus:border-[#fbbf24] focus:outline-none"
             />
           </div>
         </div>
 
-        {/* Footer with Quantity & Add Button */}
-        <div className="p-4 bg-[#1c1b1b] border-t border-[#353534] flex items-center gap-3">
-          {/* Quantity Stepper */}
-          <div className="flex items-center border border-[#ab8987]/40 bg-[#131313]">
+        {/* Footer with Quantity & Add to Cart Button */}
+        <div className="p-4 border-t border-[#374151] bg-[#111418] flex items-center justify-between gap-4">
+          <div className="flex items-center border border-[#374151] bg-[#181c22]">
             <button
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="w-9 h-10 flex items-center justify-center text-[#e5e2e1] hover:bg-[#201f1f] transition-colors"
+              className="w-9 h-9 flex items-center justify-center text-[#f1f5f9] hover:bg-[#374151] active:bg-[#dc2626] transition-colors"
             >
-              <Minus className="w-4 h-4" />
+              <Minus className="w-3.5 h-3.5" />
             </button>
-            <span className="w-8 text-center font-bold text-sm text-[#e5e2e1]">{quantity}</span>
+            <span className="w-10 text-center font-['Montserrat'] font-bold text-sm text-white">
+              {quantity}
+            </span>
             <button
               onClick={() => setQuantity(quantity + 1)}
-              className="w-9 h-10 flex items-center justify-center text-[#e5e2e1] hover:bg-[#201f1f] transition-colors"
+              className="w-9 h-9 flex items-center justify-center text-[#f1f5f9] hover:bg-[#374151] active:bg-[#dc2626] transition-colors"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          {/* Add to Cart Button */}
           <button
             onClick={handleAdd}
-            className="flex-1 bg-[#ff535b] text-white font-['Montserrat'] font-black uppercase text-sm py-3 px-4 border border-[#e5e2e1] shadow-[4px_4px_0px_0px_#ffffff] hover:bg-[#bb152c] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all flex items-center justify-between"
+            className="flex-1 py-3 bg-[#dc2626] text-white font-['Montserrat'] font-black uppercase text-xs sm:text-sm border border-white shadow-[3px_3px_0px_#ffffff] hover:bg-[#b91c1c] active:translate-x-[2px] active:translate-y-[2px] transition-all flex items-center justify-center gap-2"
           >
-            <span>Add to Rig Order</span>
-            <span>${totalPrice.toFixed(2)}</span>
+            <span>Add to Order</span>
+            <span>•</span>
+            <span className="font-mono">${totalPrice.toFixed(2)}</span>
           </button>
         </div>
       </div>
