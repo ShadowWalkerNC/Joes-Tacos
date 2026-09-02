@@ -1,0 +1,6 @@
+{
+  "name": "Taco Joe - Tiny Truck, Big Flavor",
+  "description": "Authentic street tacos crafted with attitude. Serving up Midcoast Maine with live food truck tracking, interactive menu, online ordering, and catering.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
